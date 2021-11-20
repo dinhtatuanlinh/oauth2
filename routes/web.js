@@ -57,6 +57,35 @@ const stringifiedParams = queryString.stringify({
 
 const facebookLoginUrl = `https://www.facebook.com/v4.0/dialog/oauth?${stringifiedParams}`;
 
+async function getAccessTokenFromCode(code) {
+    const { data } = await axios({
+        url: "https://graph.facebook.com/v4.0/oauth/access_token",
+        method: "get",
+        params: {
+            client_id: process.env.ID_FB_APP,
+            client_secret: process.env.FB_APIKEY,
+            redirect_uri:
+                "https://dttl-oauth2.herokuapp.com/authenticate/facebook/",
+            code,
+        },
+    });
+    console.log(data); // { access_token, token_type, expires_in }
+    return data.access_token;
+}
+
+async function getFacebookUserData(access_token) {
+    const { data } = await axios({
+        url: "https://graph.facebook.com/me",
+        method: "get",
+        params: {
+            fields: ["id", "email", "first_name", "last_name"].join(","),
+            access_token: access_token,
+        },
+    });
+    console.log(data); // { id, email, first_name, last_name }
+    return data;
+}
+
 module.exports = () => {
     router.get("/auth/google/url", (req, res, next) => {
         // console.log(getGlAuthURL());
@@ -72,11 +101,13 @@ module.exports = () => {
 
     router.get("/authenticate/facebook", async (req, res, next) => {
         let code = req.query;
-        console.log(code);
-        // let googleUser = await getGoogleUser( code );
-        // console.log(googleUser);
+        let accesstoken = await getAccessTokenFromCode(code);
+        let result = await getFacebookUserData(accesstoken)
+    
     });
-    router.get("/authenticate/facebook/url", (req, res, next)=> res.send(facebookLoginUrl))
+    router.get("/authenticate/facebook/url", (req, res, next) =>
+        res.send(facebookLoginUrl)
+    );
     router.get("/", (req, res, next) =>
         loginController.getLogin(req, res, next)
     );
