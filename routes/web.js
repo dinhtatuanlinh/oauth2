@@ -48,7 +48,7 @@ async function getGoogleUser(code) {
 
 const stringifiedParams = queryString.stringify({
     client_id: process.env.ID_FB_APP,
-    redirect_uri: "http://localhost:8989/authenticate/facebook/",
+    redirect_uri: "https://dttl-oauth2.herokuapp.com/authenticate/facebook/",
     scope: ["email", "user_friends"].join(","), // comma seperated string
     response_type: "code",
     auth_type: "rerequest",
