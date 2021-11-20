@@ -69,6 +69,7 @@ async function getAccessTokenFromCode(code) {
             code,
         },
     });
+    console.log("#########1#########");
     console.log(data); // { access_token, token_type, expires_in }
     return data.access_token;
 }
@@ -82,6 +83,7 @@ async function getFacebookUserData(access_token) {
             access_token: access_token,
         },
     });
+    console.log("#########2#########");
     console.log(data); // { id, email, first_name, last_name }
     return data;
 }
