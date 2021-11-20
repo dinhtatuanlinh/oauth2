@@ -102,7 +102,7 @@ module.exports = () => {
     });
 
     router.get("/authenticate/facebook", async (req, res, next) => {
-        let code = req.query;
+        let code = req.query.code;
         console.log("#########3#########");
         console.log(code);
         let accesstoken = await getAccessTokenFromCode(code);
