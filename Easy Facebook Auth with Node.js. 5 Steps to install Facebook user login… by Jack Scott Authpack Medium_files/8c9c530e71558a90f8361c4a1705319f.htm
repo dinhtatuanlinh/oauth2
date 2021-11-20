@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html><head><title>facebook-access-token.ts – Medium</title><meta name="description" content="You can't perform that action at this time. You signed in with another tab or window. You signed out in another tab or window. Reload to refresh your session. Reload to refresh your session."><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!-- base href="https://medium.com/media/8c9c530e71558a90f8361c4a1705319f" --><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="8c9c530e71558a90f8361c4a1705319f_data/6496246156ebebfcf83a66e49d6be410.js" charset="utf-8"></script><link rel="stylesheet" href="5836f3ff11e77f3ed9b76c62929d1110_data/gist-embed-ff75a167df5efbfedb0e388793ca9fe7.css"><div id="gist99967514" class="gist">
+    <div class="gist-file" translate="no">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-facebook-access-token-ts" class="file my-2">
+    
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-typescript  ">
+
+      
+<div class="js-check-bidi blob-code-content">
+  <template class="js-file-alert-template">
+  <div data-view-component="true" class="flash flash-warn flash-full">
+  <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-alert">
+    <path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path>
+</svg>
+  
+    This file contains bidirectional Unicode text that may be 
+interpreted or compiled differently than what appears below. To review, 
+open the file in an editor that reveals hidden Unicode characters. <a href="https://github.co/hiddenchars" target="_blank">Learn more about bidirectional Unicode characters</a>
+
+
+  
+</div></template>
+<template class="js-line-alert-template">
+  <span aria-label="This line has hidden Unicode characters" data-view-component="true" class="bidi-line-alert tooltipped tooltipped-e">
+    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-alert">
+    <path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path>
+</svg>
+</span></template>
+
+  <table class="highlight tab-size js-file-line-container js-code-nav-container js-tagsearch-file" data-tab-size="8" data-paste-markdown-skip="" data-tagsearch-lang="TypeScript" data-tagsearch-path="facebook-access-token.ts">
+        <tbody><tr>
+          <td id="file-facebook-access-token-ts-L1" class="blob-num js-line-number js-code-nav-line-number" data-line-number="1"></td>
+          <td id="file-facebook-access-token-ts-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-k">import</span> <span class="pl-s1">axios</span> <span class="pl-k">from</span> <span class="pl-s">'axios'</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-facebook-access-token-ts-L2" class="blob-num js-line-number js-code-nav-line-number" data-line-number="2"></td>
+          <td id="file-facebook-access-token-ts-LC2" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-facebook-access-token-ts-L3" class="blob-num js-line-number js-code-nav-line-number" data-line-number="3"></td>
+          <td id="file-facebook-access-token-ts-LC3" class="blob-code blob-code-inner js-file-line"><span class="pl-k">async</span> <span class="pl-k">function</span> <span class="pl-en">getAccessTokenFromCode</span><span class="pl-kos">(</span><span class="pl-s1">code</span><span class="pl-kos">)</span> <span class="pl-kos">{</span></td>
+        </tr>
+        <tr>
+          <td id="file-facebook-access-token-ts-L4" class="blob-num js-line-number js-code-nav-line-number" data-line-number="4"></td>
+          <td id="file-facebook-access-token-ts-LC4" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">const</span> <span class="pl-kos">{</span> data <span class="pl-kos">}</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-en">axios</span><span class="pl-kos">(</span><span class="pl-kos">{</span></td>
+        </tr>
+        <tr>
+          <td id="file-facebook-access-token-ts-L5" class="blob-num js-line-number js-code-nav-line-number" data-line-number="5"></td>
+          <td id="file-facebook-access-token-ts-LC5" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">url</span>: <span class="pl-s">'https://graph.facebook.com/v4.0/oauth/access_token'</span><span class="pl-kos">,</span></td>
+        </tr>
+        <tr>
+          <td id="file-facebook-access-token-ts-L6" class="blob-num js-line-number js-code-nav-line-number" data-line-number="6"></td>
+          <td id="file-facebook-access-token-ts-LC6" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">method</span>: <span class="pl-s">'get'</span><span class="pl-kos">,</span></td>
+        </tr>
+        <tr>
+          <td id="file-facebook-access-token-ts-L7" class="blob-num js-line-number js-code-nav-line-number" data-line-number="7"></td>
+          <td id="file-facebook-access-token-ts-LC7" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">params</span>: <span class="pl-kos">{</span></td>
+        </tr>
+        <tr>
+          <td id="file-facebook-access-token-ts-L8" class="blob-num js-line-number js-code-nav-line-number" data-line-number="8"></td>
+          <td id="file-facebook-access-token-ts-LC8" class="blob-code blob-code-inner js-file-line">      <span class="pl-c1">client_id</span>: <span class="pl-s1">process</span><span class="pl-kos">.</span><span class="pl-c1">env</span><span class="pl-kos">.</span><span class="pl-c1">APP_ID_GOES_HERE</span><span class="pl-kos">,</span></td>
+        </tr>
+        <tr>
+          <td id="file-facebook-access-token-ts-L9" class="blob-num js-line-number js-code-nav-line-number" data-line-number="9"></td>
+          <td id="file-facebook-access-token-ts-LC9" class="blob-code blob-code-inner js-file-line">      <span class="pl-c1">client_secret</span>: <span class="pl-s1">process</span><span class="pl-kos">.</span><span class="pl-c1">env</span><span class="pl-kos">.</span><span class="pl-c1">APP_SECRET_GOES_HERE</span><span class="pl-kos">,</span></td>
+        </tr>
+        <tr>
+          <td id="file-facebook-access-token-ts-L10" class="blob-num js-line-number js-code-nav-line-number" data-line-number="10"></td>
+          <td id="file-facebook-access-token-ts-LC10" class="blob-code blob-code-inner js-file-line">      <span class="pl-c1">redirect_uri</span>: <span class="pl-s">'https://www.example.com/authenticate/facebook/'</span><span class="pl-kos">,</span></td>
+        </tr>
+        <tr>
+          <td id="file-facebook-access-token-ts-L11" class="blob-num js-line-number js-code-nav-line-number" data-line-number="11"></td>
+          <td id="file-facebook-access-token-ts-LC11" class="blob-code blob-code-inner js-file-line">      code<span class="pl-kos">,</span></td>
+        </tr>
+        <tr>
+          <td id="file-facebook-access-token-ts-L12" class="blob-num js-line-number js-code-nav-line-number" data-line-number="12"></td>
+          <td id="file-facebook-access-token-ts-LC12" class="blob-code blob-code-inner js-file-line">    <span class="pl-kos">}</span><span class="pl-kos">,</span></td>
+        </tr>
+        <tr>
+          <td id="file-facebook-access-token-ts-L13" class="blob-num js-line-number js-code-nav-line-number" data-line-number="13"></td>
+          <td id="file-facebook-access-token-ts-LC13" class="blob-code blob-code-inner js-file-line">  <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-facebook-access-token-ts-L14" class="blob-num js-line-number js-code-nav-line-number" data-line-number="14"></td>
+          <td id="file-facebook-access-token-ts-LC14" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">data</span><span class="pl-kos">)</span><span class="pl-kos">;</span> <span class="pl-c">// { access_token, token_type, expires_in }</span></td>
+        </tr>
+        <tr>
+          <td id="file-facebook-access-token-ts-L15" class="blob-num js-line-number js-code-nav-line-number" data-line-number="15"></td>
+          <td id="file-facebook-access-token-ts-LC15" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">return</span> <span class="pl-s1">data</span><span class="pl-kos">.</span><span class="pl-c1">access_token</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-facebook-access-token-ts-L16" class="blob-num js-line-number js-code-nav-line-number" data-line-number="16"></td>
+          <td id="file-facebook-access-token-ts-LC16" class="blob-code blob-code-inner js-file-line"><span class="pl-kos">}</span><span class="pl-kos">;</span></td>
+        </tr>
+  </tbody></table>
+</div>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/jackrobertscott/6496246156ebebfcf83a66e49d6be410/raw/4014b7863cefcc7d85b63c9bed28cdd9593cb2b3/facebook-access-token.ts" style="float:right">view raw</a>
+        <a href="https://gist.github.com/jackrobertscott/6496246156ebebfcf83a66e49d6be410#file-facebook-access-token-ts">
+          facebook-access-token.ts
+        </a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200; if (document) {document.domain = document.domain;}function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height);var elements = document.getElementsByClassName("gist-data"); for (var i = 0; i < elements.length; i++) {elements[i].style.overflow = "visible"}resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {try {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);} catch(error) {console.log('maybeResize error: ', error)}}maybeResize();</script><script defer="defer" src="v64f9daad31f64f81be21cbef6184a5e31634941392597" integrity="sha512-gV/bogrUTVP2N3IzTDKzgP0Js1gg4fbwtYB6ftgLbKQu/V8yH2+lrKCfKHelh4SO3DPzKj4/glTO+tNJGDnb0A==" data-cf-beacon="{&quot;rayId&quot;:&quot;6b0e0fa12b093c76&quot;,&quot;token&quot;:&quot;0b5f665943484354a59c39c6833f7078&quot;,&quot;version&quot;:&quot;2021.11.0&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>
+</body></html>
