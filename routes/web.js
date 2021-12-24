@@ -11,7 +11,9 @@ let router = express.Router();
 let oauth2Client = new google.auth.OAuth2(
     gl.web.client_id,
     gl.web.client_secret,
-    gl.web.redirect_uris[0]
+    // gl.web.redirect_uris[0]
+    // "http://127.0.0.1:5500/receiveCode.html"
+    "http://localhost:8989/auth/google"
 );
 
 let getGlAuthURL = () => {
